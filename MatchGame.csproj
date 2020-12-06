@@ -6,4 +6,48 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Animals\blowfish.png" />
+    <None Remove="Animals\bug.png" />
+    <None Remove="Animals\camel.png" />
+    <None Remove="Animals\cat.png" />
+    <None Remove="Animals\cow.png" />
+    <None Remove="Animals\crocodile.png" />
+    <None Remove="Animals\deer.png" />
+    <None Remove="Animals\dog.png" />
+    <None Remove="Animals\elephant.png" />
+    <None Remove="Animals\goat.png" />
+    <None Remove="Animals\gorilla.png" />
+    <None Remove="Animals\hedgehog.png" />
+    <None Remove="Animals\lady-beetle.png" />
+    <None Remove="Animals\pig.png" />
+    <None Remove="Animals\rhinoceros.png" />
+    <None Remove="Animals\sauropod.png" />
+    <None Remove="Animals\snail.png" />
+    <None Remove="Animals\snake.png" />
+    <None Remove="Animals\tiger.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Animals\blowfish.png" />
+    <Resource Include="Animals\bug.png" />
+    <Resource Include="Animals\camel.png" />
+    <Resource Include="Animals\cat.png" />
+    <Resource Include="Animals\cow.png" />
+    <Resource Include="Animals\crocodile.png" />
+    <Resource Include="Animals\deer.png" />
+    <Resource Include="Animals\dog.png" />
+    <Resource Include="Animals\elephant.png" />
+    <Resource Include="Animals\goat.png" />
+    <Resource Include="Animals\gorilla.png" />
+    <Resource Include="Animals\hedgehog.png" />
+    <Resource Include="Animals\lady-beetle.png" />
+    <Resource Include="Animals\pig.png" />
+    <Resource Include="Animals\rhinoceros.png" />
+    <Resource Include="Animals\sauropod.png" />
+    <Resource Include="Animals\snail.png" />
+    <Resource Include="Animals\snake.png" />
+    <Resource Include="Animals\tiger.png" />
+  </ItemGroup>
+
 </Project>
