@@ -15,6 +15,9 @@ namespace MatchGame
         DispatcherTimer timer = new DispatcherTimer();
         int tenthOfSecondsElapsed;
         int matchesFound;
+        TextBlock lastTextBlockClicked;
+        bool findingMatch = false;
+
 
         public MainWindow()
         {
@@ -33,12 +36,18 @@ namespace MatchGame
             if (matchesFound == 8)
             {
                 timer.Stop();
-                timeTextBlock.Text = timeTextBlock.Text + " - Play again?";
+                timeTextBlock.Text += " - Play again?";
+                YesBtn.Visibility = Visibility.Visible;
+                NoBtn.Visibility = Visibility.Visible;
             }
         }
 
         private void SetUpGame()
         {
+            tenthOfSecondsElapsed = 0;
+            matchesFound = 0;
+            YesBtn.Visibility = Visibility.Hidden;
+            NoBtn.Visibility = Visibility.Hidden;
             List<string> animalEmoji = new List<string>()
             {
                 "🐱","🐱",
@@ -60,17 +69,13 @@ namespace MatchGame
                     int index = random.Next(animalEmoji.Count);
                     string nextEmoji = animalEmoji[index];
                     textBlock.Text = nextEmoji;
+                    textBlock.Visibility = Visibility.Visible;
                     animalEmoji.RemoveAt(index);
                 }
             }
 
             timer.Start();
-            tenthOfSecondsElapsed = 0;
-            matchesFound = 0;
         }
-
-        TextBlock lastTextBlockClicked;
-        bool findingMatch = false;
 
         private void TextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -96,12 +101,14 @@ namespace MatchGame
             }
         }
 
-        private void timeTextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void YesBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (matchesFound == 8)
-            {
-                SetUpGame();
-            }
+            SetUpGame();
+        }
+
+        private void NoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

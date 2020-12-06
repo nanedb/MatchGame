@@ -1,4 +1,4 @@
-﻿<Window x:Class="MatchGame.MainWindow"
+﻿<Window x:Name="MatchGameWindow" x:Class="MatchGame.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -36,7 +36,12 @@
         <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
         <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
         <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock x:Name="timeTextBlock" HorizontalAlignment="Center" Grid.Row="4" Text="Elapsed time" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="36" Grid.ColumnSpan="4" MouseDown="timeTextBlock_MouseDown"/>
+        <TextBlock x:Name="timeTextBlock" HorizontalAlignment="Center" Grid.Row="4" Text="Elapsed time" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Grid.ColumnSpan="3"/>
+        <StackPanel Grid.Column="3" Grid.Row="4">
+        <Button x:Name="YesBtn" Content="Yes" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" Click="YesBtn_Click" Grid.Column="3" Margin="15,10,15,5" FontSize="16" FontWeight="Normal"/>
+        <Button x:Name="NoBtn" Content="No" Grid.Column="3" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" Click="NoBtn_Click" Margin="15,5,15,10" FontSize="16" FontWeight="Normal"/>
+        </StackPanel>
+        <!--<Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="10,12,0,0"/>-->
 
     </Grid>
 </Window>
