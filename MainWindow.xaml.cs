@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace MatchGame
 {
-    using System.Windows.Threading;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -15,7 +16,7 @@ namespace MatchGame
         DispatcherTimer timer = new DispatcherTimer();
         int tenthOfSecondsElapsed;
         int matchesFound;
-        TextBlock lastTextBlockClicked;
+        Image lastImageClicked;
         bool findingMatch = false;
 
 
@@ -29,75 +30,74 @@ namespace MatchGame
             SetUpGame();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            tenthOfSecondsElapsed++;
-            timeTextBlock.Text = (tenthOfSecondsElapsed / 10F).ToString("0.0 s");
-            if (matchesFound == 8)
-            {
-                timer.Stop();
-                timeTextBlock.Text += " - Play again?";
-                YesBtn.Visibility = Visibility.Visible;
-                NoBtn.Visibility = Visibility.Visible;
-            }
-        }
-
         private void SetUpGame()
         {
             tenthOfSecondsElapsed = 0;
             matchesFound = 0;
             YesBtn.Visibility = Visibility.Hidden;
             NoBtn.Visibility = Visibility.Hidden;
-            List<string> animalEmoji = new List<string>()
-            {
-                "🐱","🐱",
-                "👻","👻",
-                "🐷","🐷",
-                "🦊","🦊",
-                "🐭","🐭",
-                "🦓","🦓",
-                "🐸","🐸",
-                "🐔","🐔"
-            };
-
             Random random = new Random();
 
-            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            List<string> animals = new List<string>()
             {
-                if (textBlock.Name != "timeTextBlock")
-                {
-                    int index = random.Next(animalEmoji.Count);
-                    string nextEmoji = animalEmoji[index];
-                    textBlock.Text = nextEmoji;
-                    textBlock.Visibility = Visibility.Visible;
-                    animalEmoji.RemoveAt(index);
-                }
+                "\\Animals\\blowfish.png", "\\Animals\\blowfish.png",
+                "\\Animals\\bug.png", "\\Animals\\bug.png",
+                "\\Animals\\crocodile.png", "\\Animals\\crocodile.png",
+                "\\Animals\\elephant.png", "\\Animals\\elephant.png",
+                "\\Animals\\hedgehog.png", "\\Animals\\hedgehog.png",
+                "\\Animals\\lady-beetle.png", "\\Animals\\lady-beetle.png",
+                "\\Animals\\snail.png", "\\Animals\\snail.png",
+                "\\Animals\\tiger.png", "\\Animals\\tiger.png",
+                "\\Animals\\rhinoceros.png", "\\Animals\\rhinoceros.png",
+                "\\Animals\\snake.png", "\\Animals\\snake.png"
+            };
+
+            foreach (Image image in mainGrid.Children.OfType<Image>())
+            {
+                int index = random.Next(animals.Count);
+                string nextAnimal = animals[index];
+                image.Source = new BitmapImage(new Uri(nextAnimal, UriKind.Relative));
+                image.Visibility = Visibility.Visible;
+                animals.RemoveAt(index);
             }
 
             timer.Start();
         }
 
-        private void TextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TextBlock textBlock = sender as TextBlock;
+            Image image = sender as Image;
             if (findingMatch == false)
             {
-                textBlock.Visibility = Visibility.Hidden;
-                lastTextBlockClicked = textBlock;
+                image.Visibility = Visibility.Hidden;
+                lastImageClicked = image;
                 findingMatch = true;
             }
 
-            else if (textBlock.Text == lastTextBlockClicked.Text)
+            else if (image.Source.ToString() == lastImageClicked.Source.ToString())
             {
                 matchesFound++;
-                textBlock.Visibility = Visibility.Hidden;
+                image.Visibility = Visibility.Hidden;
                 findingMatch = false;
             }
 
             else
             {
-                lastTextBlockClicked.Visibility = Visibility.Visible;
+                lastImageClicked.Visibility = Visibility.Visible;
                 findingMatch = false;
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            tenthOfSecondsElapsed++;
+            timeTextBlock.Text = (tenthOfSecondsElapsed / 10F).ToString("0.0 s");
+            if (matchesFound == 10)
+            {
+                timer.Stop();
+                timeTextBlock.Text += " - Play again?";
+                YesBtn.Visibility = Visibility.Visible;
+                NoBtn.Visibility = Visibility.Visible;
             }
         }
 

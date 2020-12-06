@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchGame"
         mc:Ignorable="d"
-        Title="Find all of the matching animals" Height="450" Width="400">
+        Title="Find all of the matching animals" Height="550" Width="500">
+    
     <Grid x:Name="mainGrid">
+        
+        <!--#region Rows and Columns definitions -->
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -20,28 +24,39 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="?" FontSize="36" MouseDown="TextBlock_MouseDown"/>
-        <TextBlock x:Name="timeTextBlock" HorizontalAlignment="Center" Grid.Row="4" Text="Elapsed time" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Grid.ColumnSpan="3"/>
-        <StackPanel Grid.Column="3" Grid.Row="4">
-        <Button x:Name="YesBtn" Content="Yes" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" Click="YesBtn_Click" Grid.Column="3" Margin="15,10,15,5" FontSize="16" FontWeight="Normal"/>
-        <Button x:Name="NoBtn" Content="No" Grid.Column="3" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" Click="NoBtn_Click" Margin="15,5,15,10" FontSize="16" FontWeight="Normal"/>
-        </StackPanel>
-        <!--<Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="10,12,0,0"/>-->
+        <!--#endregion-->
 
+        <!--#region Images Grid-->
+        <Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <Image Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Source="/Animals/blowfish.png" MouseDown="Image_MouseDown"/>
+        <!--#endregion-->
+
+        <!--#region Last row -->
+        <TextBlock x:Name="timeTextBlock" Grid.Row="4" HorizontalAlignment="Center" Text="Elapsed time" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Grid.ColumnSpan="4"/>
+        <StackPanel Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Button x:Name="YesBtn" Content="Yes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="YesBtn_Click" Margin="15,10,15,5" FontSize="16"/>
+            <Button x:Name="NoBtn" Content="No" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NoBtn_Click" Margin="15,5,15,10" FontSize="16"/>
+        </StackPanel>
+        <!--#endregion-->
+        
     </Grid>
+    
 </Window>
